@@ -23,10 +23,16 @@ function getSelectsFromPicker(timePicker){
 }
 
 function getTimeStringFromPicker(timePicker){
-  
+  const selects = getSelectsFromPicker(timePicker);
+
+  return `${selects.hour.value}:${selects.minute.value} ${selects.meridiem.value}`;
+}
+
+function numberToOption(number){
+  const padded = number.toString().padStart(2, "0");
 }
 
 const exampleTimePickable = document.querySelector('.time-pickable');
 const exampleTimePicker = document.querySelector('.time-picker');
 
-console.log(getTimePartsFromPickable(exampleTimePicker));
+console.log(getTimeStringFromPicker(exampleTimePicker));
